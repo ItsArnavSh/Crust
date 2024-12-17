@@ -1,5 +1,6 @@
 use virtualMachine::vm::VM;
 
+mod frontend;
 mod virtualMachine;
 fn main() {
     let machine: VM = VM::bootUp();
