@@ -1,6 +1,19 @@
+use std::fmt::{self, Debug}; // Import Debug trait
+
 pub struct Token {
     typ: TokenType,
+    value: Option<u64>,
 }
+impl Debug for Token {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        writeln!(f, "Token Type: {:?} ", self.typ)?;
+        match &self.value {
+            Some(value) => writeln!(f, "with value {}", value),
+            None => writeln!(f, "No value"),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub enum TokenType {
     // Operators
